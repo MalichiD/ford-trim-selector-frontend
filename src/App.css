@@ -1,0 +1,56 @@
+/* Add CSS styles for your web site here and use them in index.html. */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+
+
+.menu-icon, .user-icon {
+  cursor: pointer;
+}
+
+
+
+main {
+  text-align: center;
+  padding: 20px;
+}
+
+.vehicle-gallery {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 20px;
+}
+
+.vehicle-image {
+  width: auto; /* Adjust based on your preference */
+  height: 250px;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.scroll-container {
+  display: inline-flex; /* Ensures images are lined up horizontally */
+}
+
+
+.search-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#vehicle-search {
+  width: 50%;
+  padding: 8px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+h1 {
+  color: #333;
+}

@@ -1,0 +1,25 @@
+header {
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .header-title {
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  .home-button{
+    font-size: 1.5em;
+    font-weight: 1000;
+    color: black;
+  }
