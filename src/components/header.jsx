@@ -11,7 +11,9 @@ const Header = () => {
           <House className='home-button' />
         </Link>
         
-        <span className="header-title">Trim Level Selector: Ford</span>
+        <span className="header-title">
+          <img style={{ textAlign: 'center', width: '105px', height: '53px' }} src="//www.ford.com/etc/designs/brand_ford/brand/skin/ford/img/bri-icons/Ford-logo.svg" alt="Ford Logo" />
+        </span>
 
         <SignedOut>
           <SignInButton />

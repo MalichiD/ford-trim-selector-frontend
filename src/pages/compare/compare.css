@@ -1,0 +1,82 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9; /* Adjust background color to match the design */
+    font-family: Arial, Helvetica, sans-serif;
+}
+.header-title{
+    /* flex-grow: 1; */
+    text-align: center;
+    width: 105px;
+    height: 53px;
+}
+.menu-icon {
+    width: auto;
+    height: 53px;
+    padding-left: 30px;
+}
+.user-icon {
+    width: auto;
+    height: 53px;
+    padding-right: 30px;
+}
+
+.vehicle-comparison {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    max-width: 1200px; /* Restrict max width for better layout control */
+    gap: 20px; /* Adds space between the two vehicle containers */
+}
+
+.vehicle-container {
+    flex: 1; /* Makes each container take equal width */
+    border: 1px solid #ccc;
+    background-color: #fff; /* White background for each vehicle block */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+.vehicle-select, .vehicle-details, .trim-select{
+    width: 100%;
+    margin-bottom: 15px; /* Increased margin for better spacing */
+    border: none;
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-radius: 5px; /* Rounded corners for inputs and details */
+    font-size: 18px;
+}
+
+
+.vehicle-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px; /* Space between image and details list */
+}
+
+.vehicle-details {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+}
+
+.vehicle-details li {
+    padding: 8px 0; /* More padding for each detail line */
+    border-bottom: 1px solid #eee; /* Separator for items */
+}
+
+
+
+.header-title {
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* Additional styling for responsiveness */
+@media (max-width: 768px) {
+    .vehicle-comparison {
+        flex-direction: column; /* Stack the vehicles vertically on smaller screens */
+    }
+}

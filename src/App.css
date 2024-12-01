@@ -2,7 +2,12 @@
 body, html {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#mainPhoto{
+  display: cover;
+ 
 }
 
 
@@ -11,7 +16,12 @@ body, html {
   cursor: pointer;
 }
 
-
+.header-title{
+  /* flex-grow: 1; */
+  text-align: center;
+  width: 105px;
+  height: 53px;
+}
 
 main {
   text-align: center;
@@ -19,19 +29,23 @@ main {
 }
 
 .vehicle-gallery {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-  overflow-x: auto;
-  white-space: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto; 
   padding: 20px;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;
+
 }
 
 .vehicle-image {
-  width: auto; /* Adjust based on your preference */
-  height: 250px;
-  display: inline-block;
+  flex: 0 0 auto;  
+  width: auto; 
+  height: 250px; 
   margin-right: 20px;
 }
+
+
 
 .scroll-container {
   display: inline-flex; /* Ensures images are lined up horizontally */
