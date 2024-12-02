@@ -20,7 +20,7 @@ export default function App() {
         try {
           // Attempt to fetch the user by ID
           const response = await api.get(`/api/v1/users/${user.id}`);
-          setFavoriteVehicleIds(response.data.favorites || []);
+          setFavoriteVehicleIds(response.data.favorites);
         } catch (error) {
           if (error.response && error.response.status === 404) {
             // User not found, create the user
@@ -32,7 +32,7 @@ export default function App() {
                 favorites: [],
               });
               console.log('Created user document:', createUserResponse.data);
-              setFavoriteVehicleIds(createUserResponse.data.favorites || []);
+              setFavoriteVehicleIds(createUserResponse.data.favorites);
             } catch (createError) {
               console.error('Error creating user document:', createError);
             }
@@ -74,18 +74,26 @@ export default function App() {
   return (
     <>
       <main>
-        {location.pathname === "/" && (
-          <SignedIn>
-            <button onClick={toggleFavorites}>
-              {showFavorites ? "Show All Vehicles" : "Show Favorite Vehicles"}
-            </button>
-          </SignedIn>
-        )}
         <Routes>
           <Route path="/" element={
             <>
               <h1>Select a Vehicle</h1>
-              <div className="search-container">
+              
+              <div className="vehicle-gallery">
+                {displayedVehicles.map(vehicle => (
+                  <Link key={vehicle.id} to={`/vehicle/${vehicle.model}/${vehicle.year}`}>
+                    <img src={vehicle.images[0] || 'placeholder_image_url'} alt={`${vehicle.year} ${vehicle.model}`} className="vehicle-image"/>
+                  </Link>
+                ))}
+              </div>
+              {location.pathname === "/" && (
+          <SignedIn>
+            <button onClick={toggleFavorites} className="favorites-button">
+              {showFavorites ? "Show All Vehicles" : "Show Favorite Vehicles"}
+            </button>
+          </SignedIn>
+        )}
+        <div className="search-container">
                 <input
                   type="text"
                   placeholder="Search"
@@ -93,13 +101,6 @@ export default function App() {
                   value={searchValue}
                   onChange={handleSearchChange}
                 />
-              </div>
-              <div className="vehicle-gallery">
-                {displayedVehicles.map(vehicle => (
-                  <Link key={vehicle.id} to={`/vehicle/${vehicle.model}/${vehicle.year}`}>
-                    <img src={vehicle.images[0] || 'placeholder_image_url'} alt={`${vehicle.year} ${vehicle.model}`} className="vehicle-image"/>
-                  </Link>
-                ))}
               </div>
             </>
           } />

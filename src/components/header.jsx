@@ -8,18 +8,33 @@ const Header = () => {
     <header>
       <div className="header-content">
       <Link to="/">
-          <House className='home-button' />
+          <House className='home-button' size={64}/>
         </Link>
         
         <span className="header-title">
-          <img style={{ textAlign: 'center', width: '105px', height: '53px' }} src="//www.ford.com/etc/designs/brand_ford/brand/skin/ford/img/bri-icons/Ford-logo.svg" alt="Ford Logo" />
+          <img className='header-image' src="//www.ford.com/etc/designs/brand_ford/brand/skin/ford/img/bri-icons/Ford-logo.svg" alt="Ford Logo" />
         </span>
 
         <SignedOut>
-          <SignInButton />
+          <SignInButton>
+            <button className="sign-in-button">Sign In</button>
+          </SignInButton>
         </SignedOut>
         <SignedIn>
-          <UserButton />
+          <div className='user-button'>
+          <UserButton appearance={{
+            elements: {
+              formButtonPrimary: {
+                width: '100px',
+                height: '100px',
+              },
+              userButtonAvatarBox: {
+                width: '75px',
+                height: '75px',
+              }
+            }
+          }}/>
+          </div>
         </SignedIn>
 
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>

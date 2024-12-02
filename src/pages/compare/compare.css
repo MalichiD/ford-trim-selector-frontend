@@ -1,33 +1,21 @@
-body, html {
-    margin: 0;
-    padding: 0;
+body {
     font-family: 'Arial', sans-serif;
     background-color: #f9f9f9; /* Adjust background color to match the design */
     font-family: Arial, Helvetica, sans-serif;
+    width: 100vw;
 }
-.header-title{
-    /* flex-grow: 1; */
-    text-align: center;
-    width: 105px;
-    height: 53px;
-}
-.menu-icon {
-    width: auto;
-    height: 53px;
-    padding-left: 30px;
-}
-.user-icon {
-    width: auto;
-    height: 53px;
-    padding-right: 30px;
+.compare-div{
+    width: 100vw;
+    margin-right: 50px;
 }
 
 .vehicle-comparison {
     display: flex;
     justify-content: center;
-    margin: 20px auto;
-    max-width: 1200px; /* Restrict max width for better layout control */
+    margin-top: 20px auto;
     gap: 20px; /* Adds space between the two vehicle containers */
+    width: 100%; /* Adjusted width for better responsiveness */
+    margin-right: 20px;
 }
 
 .vehicle-container {
@@ -49,7 +37,6 @@ body, html {
     font-size: 18px;
 }
 
-
 .vehicle-image {
     width: 100%;
     height: auto;
@@ -69,13 +56,12 @@ body, html {
 
 
 
-.header-title {
-    flex-grow: 1;
-    text-align: center;
-}
 
 /* Additional styling for responsiveness */
 @media (max-width: 768px) {
+    .vehicle-container {
+        width: 100%; /* Ensure each container takes the full width on smaller screens */
+    }
     .vehicle-comparison {
         flex-direction: column; /* Stack the vehicles vertically on smaller screens */
     }

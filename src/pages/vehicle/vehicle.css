@@ -3,22 +3,7 @@ body, html {
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     color: #333;
-}
-
-Header {
-    background-color: #f0f0f0;
-    padding: 20px 0;
-    font-size: 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ccc;
-}
-
-.menu-icon, .user-icon {
-    width: auto;
-    height: 53px;
-    padding: 0 30px;
+    width: 100vw;
 }
 
 main {

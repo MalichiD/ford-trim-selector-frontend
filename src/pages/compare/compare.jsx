@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useMemo} from 'react';
-import { Link, useLocation} from 'react-router-dom';
+import { useState, useEffect, useMemo} from 'react';
+import {useLocation} from 'react-router-dom';
 import api from '../../api/axiosConfig';
 import './compare.css';
 
@@ -109,12 +109,12 @@ const Compare = () => {
   };
 
   return (
-    <div>
+    <div className='compare-div'>
       <h1 style={{ textAlign: 'center' }}>Compare Vehicles</h1>
       <main>
         <div className="vehicle-comparison">
           <div className="vehicle-container">
-            <select id="vehicle1Selector" className="vehicle-select" onChange={handleVehicle1Change}>
+          <select id="vehicle1Selector" className="vehicle-select" onChange={handleVehicle1Change} value={vehicle1 ? `${vehicle1.model}-${vehicle1.year}` : ''}>
               <option value="">Select a vehicle</option>
               {vehicles.map(vehicle => (
                 <option key={`${vehicle.model}-${vehicle.year}`} value={`${vehicle.model}-${vehicle.year}`}>
@@ -124,7 +124,7 @@ const Compare = () => {
             </select>
             {vehicle1 && (
               <>
-                <select id="trim1Selector" className="trim-select" onChange={handleTrim1Change} value={selectedTrim1 ? `${selectedTrim1.name} - ${selectedTrim1.drivetrain.drive_type} - ${selectedTrim1.engine.engine_model}` : ''}>
+                <select id="trim1Selector" className="vehicle-select" onChange={handleTrim1Change} value={selectedTrim1 ? `${selectedTrim1.name} - ${selectedTrim1.drivetrain.drive_type} - ${selectedTrim1.engine.engine_model}` : ''}>
                   <option value="">Select a trim</option>
                   {vehicle1.trims.map(trim => (
                     <option key={`${trim.name}-${trim.drivetrain.drive_type}-${trim.engine.engine_model}`} value={`${trim.name} - ${trim.drivetrain.drive_type} - ${trim.engine.engine_model}`}>

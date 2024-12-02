@@ -89,6 +89,7 @@ const Vehicle = () => {
   }
 
   return (
+    <body>
     <div>
       <main>
         <section className="vehicle-info">
@@ -119,6 +120,7 @@ const Vehicle = () => {
         </section>
       </main>
     </div>
+    </body>
   );
 };
 
