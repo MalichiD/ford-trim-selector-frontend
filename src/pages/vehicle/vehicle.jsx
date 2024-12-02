@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import api from '../../api/axiosConfig';
-import { useUser } from '@clerk/clerk-react';
+import { SignedIn, useUser } from '@clerk/clerk-react';
 import './vehicle.css';
 
 const capitalizeFirstLetter = (string) => {
@@ -102,9 +102,10 @@ const Vehicle = () => {
             ))}
           </select>
           <button id="compareButton" className="btn" onClick={handleCompareClick}>Compare This Vehicle</button>
-          <button id="favoriteButton" className="btn" onClick={handleFavoriteClick}>
+          <SignedIn><button id="favoriteButton" className="btn" onClick={handleFavoriteClick}>
             {isFavorited ? 'Unfavorite' : 'Favorite'}
           </button>
+          </SignedIn>
         </section>
         <section className="vehicle-details">
           <h3>General Information</h3>
