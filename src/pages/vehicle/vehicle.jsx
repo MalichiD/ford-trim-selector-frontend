@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import api from '../../api/axiosConfig';
 import { useUser } from '@clerk/clerk-react';
 import './vehicle.css';
@@ -17,6 +17,7 @@ const Vehicle = () => {
   const navigate = useNavigate();
   const { isSignedIn, user } = useUser();
 
+
   useEffect(() => {
     const fetchVehicleDetails = async () => {
       try {
@@ -26,8 +27,8 @@ const Vehicle = () => {
 
         // Check if the vehicle is favorited
         if (isSignedIn && user && user.id) {
-          const userResponse = await api.get(`/api/users/${user.id}`);
-          setIsFavorited(userResponse.data.favoriteVehicleIds.includes(response.data.id));
+          const userResponse = await api.get(`/api/v1/users/${user.id}`);
+          setIsFavorited(userResponse.data.favorites.includes(response.data.id));
         }
       } catch (error) {
         console.error('Error fetching vehicle details:', error);
@@ -57,10 +58,20 @@ const Vehicle = () => {
   const handleFavoriteClick = async () => {
     if (isSignedIn && user && user.id) {
       try {
-        const response = await api.post(`/api/users/${user.id}/favorites`, {
-          vehicleId: vehicle.id,
-        });
-        setIsFavorited(response.data.favoriteVehicleIds.includes(vehicle.id));
+        console.log(vehicle.model);
+        console.log(vehicle.id);
+
+        if (isFavorited) {
+          // Remove from favorites
+          const response = await api.delete(`/api/v1/users/${user.id}/favorites/${vehicle.id}`);
+          console.log('Favorite status updated:', response);
+          setIsFavorited(false);
+        } else {
+          // Add to favorites
+          const response = await api.post(`/api/v1/users/${user.id}/favorites/${vehicle.id}`);
+          console.log('Favorite status updated:', response);
+          setIsFavorited(true);
+        }
       } catch (error) {
         console.error('Error updating favorite status:', error);
       }
